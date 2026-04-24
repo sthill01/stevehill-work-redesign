@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>stevehill.work — Wireframes</title>
+<link rel="stylesheet" href="wireframe-styles.css"/>
+<style>
+  html, body { margin: 0; padding: 0; background: #e8e4d8; font-family: 'Inter', system-ui, sans-serif; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="wf-primitives.jsx"></script>
+<script type="text/babel" src="wf-logos.jsx"></script>
+<script type="text/babel" src="wf-home.jsx"></script>
+<script type="text/babel" src="wf-nav-footer.jsx"></script>
+<script type="text/babel" src="wf-pages.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+function App() {
+  const { DesignCanvas, DCSection, DCArtboard } = window;
+  return (
+    <DesignCanvas title="stevehill.work — wireframe explorations" subtitle="Low-fi sketches across logos, nav, pages and footer. 4–5 directions each; terminal/IDE lean per the brief.">
+
+      <DCSection id="logos" title="01 · Logo directions" subtitle="Six monogram + abstract-mark concepts. Mix of bracketed-SH, data-chart SH, ascending-line, stacked wordmark, terminal prompt, and node-graph.">
+        <DCArtboard id="logos-all" label="All six directions" width={900} height={480}>
+          <div style={{padding:"10px", background:"var(--paper)"}}>
+            <LogoExplorations/>
+          </div>
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection id="nav" title="02 · Navigation options" subtitle="Four patterns — flat (current), categorized dropdowns, terminal/cmd-k, and left sidebar rail. Your site has 9 items so compression or categorization is worth considering.">
+        <DCArtboard id="nav-flat" label="A · Flat — all visible" width={960} height={110}><Nav1/></DCArtboard>
+        <DCArtboard id="nav-dropdown" label="B · Categorized dropdowns (w/ open state)" width={960} height={260}><Nav2/></DCArtboard>
+        <DCArtboard id="nav-terminal" label="C · Terminal / ⌘K palette" width={960} height={130}><Nav3/></DCArtboard>
+        <DCArtboard id="nav-rail" label="D · Left sidebar rail" width={960} height={320}><Nav4/></DCArtboard>
+      </DCSection>
+
+      <DCSection id="home" title="03 · Home page · 5 directions" subtitle="Each hero leads with results (per brief). From most technical (V1/V3) → most editorial (V2/V4) → most proof-forward (V5).">
+        <DCArtboard id="home-v1" label="V1 · Terminal / IDE" width={900} height={680}><HomeV1/></DCArtboard>
+        <DCArtboard id="home-v2" label="V2 · Editorial magazine" width={900} height={620}><HomeV2/></DCArtboard>
+        <DCArtboard id="home-v3" label="V3 · Bloomberg terminal" width={900} height={520}><HomeV3/></DCArtboard>
+        <DCArtboard id="home-v4" label="V4 · Minimal Swiss grid" width={900} height={600}><HomeV4/></DCArtboard>
+        <DCArtboard id="home-v5" label="V5 · Big-number proof-first" width={900} height={640}><HomeV5/></DCArtboard>
+      </DCSection>
+
+      <DCSection id="dashboards" title="04 · Dashboards index" subtitle="Two takes: card grid with outcome badges, and terminal-table listing.">
+        <DCArtboard id="dash-cards" label="A · Card grid" width={900} height={640}><DashboardsIndexA/></DCArtboard>
+        <DCArtboard id="dash-terminal" label="B · Terminal table" width={900} height={480}><DashboardsIndexB/></DCArtboard>
+      </DCSection>
+
+      <DCSection id="examples" title="05 · Examples index" subtitle="Horizontal rows — headline outcome first, supporting detail second, tagged stats on the right.">
+        <DCArtboard id="examples-rows" label="Stacked STAR rows" width={900} height={620}><ExamplesIndexA/></DCArtboard>
+      </DCSection>
+
+      <DCSection id="case" title="06 · Single case study (Netgain)" subtitle="STAR structure with big-number header and linked artifacts.">
+        <DCArtboard id="case-netgain" label="Netgain case study" width={900} height={760}><CaseStudy/></DCArtboard>
+      </DCSection>
+
+      <DCSection id="howiwork" title="07 · How I Work" subtitle="4-phase loop + tooling/metrics/integrations cards.">
+        <DCArtboard id="howiwork-a" label="Process page" width={900} height={620}><HowIWork/></DCArtboard>
+      </DCSection>
+
+      <DCSection id="resume" title="08 · Resume" subtitle="Tight chronological table w/ outcome-per-role on the right; PDF download top-right.">
+        <DCArtboard id="resume-a" label="Resume page" width={900} height={680}><Resume/></DCArtboard>
+      </DCSection>
+
+      <DCSection id="footer" title="09 · Footer options" subtitle="Three treatments — organized dark, big editorial signoff, terminal status bar.">
+        <DCArtboard id="footer-a" label="A · Organized dark" width={900} height={240}><FooterA/></DCArtboard>
+        <DCArtboard id="footer-b" label="B · Big editorial signoff" width={900} height={360}><FooterB/></DCArtboard>
+        <DCArtboard id="footer-c" label="C · Terminal status bar" width={900} height={220}><FooterC/></DCArtboard>
+      </DCSection>
+
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

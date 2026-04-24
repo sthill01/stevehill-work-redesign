@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steve Hill Design Sandbox</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f2f8f9;
+      --ink: #163042;
+      --muted: #5f7280;
+      --panel: rgba(255, 255, 255, 0.88);
+      --line: rgba(43, 140, 190, 0.2);
+      --accent: #2b8cbe;
+      --accent-soft: rgba(43, 140, 190, 0.12);
+      --shadow: 0 20px 50px rgba(22, 48, 66, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, rgba(43, 140, 190, 0.16), transparent 28rem),
+        linear-gradient(180deg, #f8fcfc 0%, var(--bg) 100%);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    .eyebrow {
+      font: 600 0.82rem/1.2 Arial, sans-serif;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 4vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      max-width: 12ch;
+    }
+
+    .lede {
+      max-width: 60ch;
+      margin-top: 18px;
+      font: 500 1.08rem/1.7 Arial, sans-serif;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    a.card {
+      text-decoration: none;
+      color: inherit;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px 22px 24px;
+      box-shadow: var(--shadow);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+      display: block;
+      min-height: 180px;
+    }
+
+    a.card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(43, 140, 190, 0.35);
+      background: #ffffff;
+    }
+
+    .card-type {
+      font: 600 0.78rem/1.2 Arial, sans-serif;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .card-title {
+      margin-top: 18px;
+      font-size: 1.6rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .card-copy {
+      margin-top: 12px;
+      font: 500 0.98rem/1.65 Arial, sans-serif;
+      color: var(--muted);
+    }
+
+    .footer-note {
+      margin-top: 36px;
+      font: 500 0.95rem/1.7 Arial, sans-serif;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="eyebrow">Local Design Sandbox</div>
+    <h1>Review the updated personal-brand handoff locally.</h1>
+    <p class="lede">
+      This preview is isolated from your live portfolio. Click into the new homepage and
+      supporting pages, then we can decide whether to adapt this direction into the main site.
+    </p>
+
+    <section class="grid">
+      <a class="card" href="./stevehill.work.html">
+        <div class="card-type">Home</div>
+        <div class="card-title">Homepage Prototype</div>
+        <div class="card-copy">The main high-fidelity home page from the new handoff.</div>
+      </a>
+
+      <a class="card" href="./Dashboards.html">
+        <div class="card-type">Page</div>
+        <div class="card-title">Dashboards</div>
+        <div class="card-copy">Dashboard landing page concept and overall visual system.</div>
+      </a>
+
+      <a class="card" href="./Examples.html">
+        <div class="card-type">Page</div>
+        <div class="card-title">Examples</div>
+        <div class="card-copy">Case-study hub for the example pages in this design set.</div>
+      </a>
+
+      <a class="card" href="./HowIWork.html">
+        <div class="card-type">Page</div>
+        <div class="card-title">How I Work</div>
+        <div class="card-copy">Process, operating style, and principles page.</div>
+      </a>
+
+      <a class="card" href="./Resume.html">
+        <div class="card-type">Page</div>
+        <div class="card-title">Resume</div>
+        <div class="card-copy">Resume and credibility page from the new design package.</div>
+      </a>
+
+      <a class="card" href="./wireframes/Wireframes.html">
+        <div class="card-type">Wireframes</div>
+        <div class="card-title">Wireframe Companion</div>
+        <div class="card-copy">Lower-fidelity thinking behind the polished designs.</div>
+      </a>
+    </section>
+
+    <p class="footer-note">
+      If this direction feels right, the next step is translating the approved pieces into the
+      production portfolio codebase.
+    </p>
+  </main>
+</body>
+</html>

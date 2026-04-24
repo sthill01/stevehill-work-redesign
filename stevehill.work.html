@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Steve Hill - Marketing Ops, BI and Analytics</title>
+<link rel="stylesheet" href="hifi-styles.css"/>
+<link rel="stylesheet" href="hifi-brands.css"/>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="hifi-chrome.jsx"></script>
+<script type="text/babel" src="hifi-sections.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "nav": "B",
+  "hero": "V2"
+}/*EDITMODE-END*/;
+
+function App() {
+  const {
+    TweaksPanel,
+    TweakRadio,
+    TweakSection,
+    useTweaks,
+    NavA,
+    NavB,
+    Footer,
+    HeroV1,
+    HeroV2,
+    ProofStrip,
+    DashGrid,
+    ExamplesList,
+    ResumeSection
+  } = window;
+
+  const [t, setT] = useTweaks(TWEAK_DEFAULTS);
+
+  return (
+    <div data-screen-label="Home">
+      {t.nav === "A" ? <NavA active="home" /> : <NavB active="home" />}
+      {t.hero === "V1" ? <HeroV1 /> : <HeroV2 />}
+      {t.hero === "V2" && <ProofStrip />}
+
+      <section className="section" style={{ background: "var(--paper)" }}>
+        <div className="section-head">
+          <div>
+            <div className="eyebrow">Dashboards - 6</div>
+            <h2 className="section-title">Six dashboards. Six brand systems. One analyst.</h2>
+            <p className="section-sub">
+              A sandbox rebuild of the live-site content using the new design direction for the dashboard library.
+            </p>
+          </div>
+          <a className="section-link" href="Dashboards.html">View all dashboards -&gt;</a>
+        </div>
+        <DashGrid />
+      </section>
+
+      <section
+        className="section"
+        style={{ background: "var(--paper-warm)", borderTop: "1px solid var(--line-soft)", borderBottom: "1px solid var(--line-soft)" }}
+      >
+        <div className="section-head">
+          <div>
+            <div className="eyebrow">Examples - 4 STAR case studies</div>
+            <h2 className="section-title">Four concise examples built for hiring teams.</h2>
+            <p className="section-sub">
+              Situation, task, action and result, plus a lifecycle view that shows where the work actually landed.
+            </p>
+          </div>
+          <a className="section-link" href="Examples.html">All examples -&gt;</a>
+        </div>
+        <ExamplesList />
+      </section>
+
+      <section className="section" style={{ background: "var(--paper)" }}>
+        <ResumeSection />
+      </section>
+
+      <Footer />
+
+      <TweaksPanel title="Layout">
+        <TweakSection title="Sandbox options">
+          <TweakRadio
+            label="Navigation"
+            value={t.nav}
+            onChange={(v) => setT("nav", v)}
+            options={[
+              { value: "A", label: "A - Flat" },
+              { value: "B", label: "B - Current" }
+            ]}
+          />
+          <TweakRadio
+            label="Hero"
+            value={t.hero}
+            onChange={(v) => setT("hero", v)}
+            options={[
+              { value: "V1", label: "V1 - Terminal" },
+              { value: "V2", label: "V2 - Editorial" }
+            ]}
+          />
+        </TweakSection>
+      </TweaksPanel>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
