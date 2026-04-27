@@ -4,9 +4,9 @@ const SITE_NAV = [
   ["home", "Home", "stevehill.work.html"],
   ["process", "How I Work", "HowIWork.html"],
   ["dash", "Dashboards", "Dashboards.html"],
-  ["blog", "Blog", "Blog_GPT.html"],
   ["ex", "Examples", "Examples.html"],
   ["resume", "Resume", "Resume.html"],
+  ["blog", "Blog", "Blog_GPT.html"],
 ];
 
 const Logo = ({ compact, dark }) => (
